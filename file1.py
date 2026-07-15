@@ -1,25 +1,20 @@
-import random
-import string
-
-def generate_random_password(length=12):
-    lower = string.ascii_lowercase
-    upper = string.ascii_uppercase
-    digits = string.digits
-    
-    all_characters = lower + upper + digits
-    
-    password = [
-        random.choice(lower),
-        random.choice(upper),
-        random.choice(digits)
-    ]
-    
-    password += [random.choice(all_characters) for _ in range(length - 3)]
-    random.shuffle(password)
-    
-    return "".join(password)
-
-password_length = 10
-generated_password = generate_random_password(password_length)
-
-print(f"Generated Random Password: {generated_password}")
+class book:
+    def __init__(self,title,author):
+        self.title=title
+        self.author=author
+        self.__isborrowed=False
+    def borrow(self):
+        self.__isborrowed=True
+        print("book has been successfully borrowed")
+    def return_book(self):
+        self.__isborrowed=False
+        print("book has been successfully returned")
+book1=book("Dragon ball","Akira Toriyama")
+book2=book("one piece","Eichiro Oda")
+book3=book("JoJo's Bizzare Adventure","Hirohiko Araki")
+book1.borrow()
+book1.return_book()
+book2.borrow()
+book2.return_book()
+book3.borrow()
+book3.return_book()
